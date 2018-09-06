@@ -1,0 +1,95 @@
+service: lambda-errors
+
+provider:
+  name: aws
+  region: us-east-2
+  runtime: nodejs6.10
+  memorySize: 128 # default memory size is 1024 MB
+  stage: test
+package:
+  individually: true # package each lambda's code individually
+  exclude:
+    - ./** # exclude all the files in the directory, which will force you to include seperately for each lambda
+
+functions:
+ 
+  lambda-error-callback-with-error:
+    handler: lambdas/lambda-error-callback-with-error/index.handler
+    name: lambda-error-callback-with-error
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-callback-with-error/**
+  lambda-error-callback-with-text:
+    handler: lambdas/lambda-error-callback-with-text/index.handler
+    name: lambda-error-callback-with-text
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-callback-with-text/**
+  lambda-error-max-call-stack:
+    handler: lambdas/lambda-error-max-call-stack/index.handler
+    name: lambda-error-max-call-stack
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-max-call-stack/**
+  lambda-error-out-of-memory:
+    handler: lambdas/lambda-error-out-of-memory/index.handler
+    name: lambda-error-out-of-memory
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-out-of-memory/**
+  lambda-error-request-body-is-not-a-json:
+    handler: lambdas/lambda-error-request-body-is-not-a-json/index.handler
+    name: lambda-error-request-body-is-not-a-json
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-request-body-is-not-a-json/**
+  lambda-error-request-body-too-large:
+    handler: lambdas/lambda-error-request-body-too-large/index.handler
+    name: lambda-error-request-body-too-large
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-request-body-too-large/**
+  lambda-error-success:
+    handler: lambdas/lambda-error-success/index.handler
+    name: lambda-error-success
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-success/**
+  lambda-error-syntax-error:
+    handler: lambdas/lambda-error-syntax-error/index.handler
+    name: lambda-error-syntax-error
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-syntax-error/**
+  lambda-error-throttled:
+    handler: lambdas/lambda-error-throttled/index.handler
+    name: lambda-error-throttled
+    timeout: 15
+    reservedConcurrency: 0
+    package:
+      include:
+        - lambdas/lambda-error-throttled/**
+  lambda-error-throw:
+    handler: lambdas/lambda-error-throw/index.handler
+    name: lambda-error-throw
+    timeout: 15
+    package:
+      include:
+        - lambdas/lambda-error-throw/**
+  lambda-error-timeout:
+    handler: lambdas/lambda-error-timeout/index.handler
+    name: lambda-error-timeout
+    timeout: 1
+    package:
+      include:
+        - lambdas/lambda-error-timeout/**
+    
+  

@@ -1,0 +1,15 @@
+{
+  "name": "lambda-errors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.259.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test.js"
+  },
+  "author": "Relly Rivlin",
+  "license": "ISC"
+}
